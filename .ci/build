@@ -84,9 +84,10 @@ if [[ ! -d "${docforgeCacheDir}" ]]; then
   mkdir -p "${docforgeCacheDir}"
 fi
 
-export DOCFORGE_CACHE_DIR="${docforgeCacheDir}"
-echo "cache dir is set to: ${docforgeCacheDir}"
-docforge -f https://github.com/gardener/documentation/blob/master/.docforge/website.yaml -d $HUGO_CONTENT --hugo --github-oauth-token $GIT_OAUTH_TOKEN --variables "org=${org}" --github-info-destination ../data --use-git=true
+export DOCFORGE_CACHE_DIR="C:\\.dfcache"
+echo "cache dir is set to: $DOCFORGE_CACHE_DIR"
+docforge -f https://github.com/dimitar-kostadinov/documentation/blob/vers_poc/.docforge/website.yaml -d $HUGO_CONTENT --hugo --versions="https://github.com/gardener/gardener=1,https://github.com/gardener/dashboard=2" --github-oauth-token $GIT_OAUTH_TOKEN --variables "org=${org}" --github-info-destination ../data --use-git=false
+
 python3 scripts/generateVersioningFile.py
 rm -rf $CLONE
 rm -rf ${website}/*

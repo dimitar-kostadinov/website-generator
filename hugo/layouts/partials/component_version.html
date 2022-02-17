@@ -2,9 +2,9 @@
   {{- $logicalName:= .LogicalName -}}
   {{- with .Path -}}
     {{- $path := strings.TrimSuffix $logicalName . -}}
-    {{- $url := print "/data/" $path "component.json" -}}
+    {{- $url := print $path "versions.json" -}}
     {{- if (fileExists $url) -}}
-      {{- (getJSON $url).version -}}
+      {{- (getJSON $url).versions -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

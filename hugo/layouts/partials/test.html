@@ -1,0 +1,12 @@
+{{ with .File }}
+    {{- $logicalName:= .LogicalName -}}
+        {{- with .Path -}}
+            {{- $path := strings.TrimSuffix $logicalName . -}}
+            {{ $url := print $path "versions.json"}}
+            {{ printf "%#v" $url }}
+            {{ if (fileExists $url) -}}
+                {{ with getJSON $url }}
+                {{ end }}
+            {{ end }}
+    {{ end }}
+{{ end }}
