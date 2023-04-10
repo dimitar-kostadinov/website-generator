@@ -8,7 +8,7 @@ defaultContentLanguageInSubdir= true
 contentDir="content"
 enableGitInfo = true
 enableEmoji = true
-disableKinds = ["taxonomy", "taxonomyTerm"]
+#disableKinds = ["taxonomy", "taxonomyTerm"]
 
 # Google Analytics Track ID
 # googleAnalytics = "UA-165447164-1"
@@ -55,7 +55,7 @@ disableHugoGeneratorInject = true
     tabWidth = 4
 
 [params]
-enable_personas = false
+enable_personas = true
 github_repo = "https://github.com/gardener/website-generator"
 github_project_repo = "https://github.com/gardener/website-generator"
 defaultURL = "https://github.com/gardener/documentation/tree/master/website/"
